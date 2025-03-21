@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matia Anchalik Rongali Bihu</title>
+    <link rel="stylesheet" href="styles5.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1;
+        }
+        .hero * {
+            position: relative;
+            z-index: 2;
+        }
+        .hidden {
+            display: none;
+        }
+        nav {
+            position: absolute;
+            top: -250px;
+            right: -600px;
+        }
+        nav ul {
+            display: flex;
+            gap: 10px;
+        }
+        nav ul li a {
+            background-color: #ff4c4c; /* Change to red */
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+        nav ul li a:hover {
+            background-color: transparent;
+            border: 2px solid #ff4c4c; /* Change to red */
+            color: #ff4c4c; /* Change to red */
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #ff4c4c;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        .search-bar input {
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            outline: none;
+            width: 150px;
+        }
+        .search-bar button {
+            background-color: #ff4c4c; /* Change to red */
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .search-bar button:hover {
+            background-color: #ff1c1c; /* Change to darker red */
+            color: white;
+            border-radius: 5px;
+        }
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 110px; /* Increase width */
+            height: 100px; /* Increase height */
+        }
+    </style>
+    <script>
+        function showPanels() {
+            document.querySelector('.hero').classList.add('hidden');
+            document.getElementById('explore').classList.remove('hidden');
+            document.getElementById('journal').classList.add('hidden'); // Ensure journal is hidden
+        }
+
+        function navigateTo(section) {
+            window.location.href = '#' + section;
+        }
+    </script>
+</head>
+<body>
+    <header class="hero">
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#explore">Explore</a></li>
+                <li><a href="#journal">Journal</a></li>
+                <li>
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search...">
+                        <button type="submit">Search</button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <img src="logo.png" alt="Festival Logo" class="logo">
+        <h1>Matia Anchalik Rongali Bihu</h1>
+        <p>Celebrate Culture, Music & Tradition</p>
+        <button onclick="showPanels()">Explore Now</button>
+    </header>
+    
+    <section id="explore" class="section hidden">
+        <h2>Explore the Festival</h2>
+        <p>Discover the grand celebrations of Bihu, cultural performances, and traditional music.</p>
+        <div class="cards">
+            <div class="card">Rongali Bihu</div>
+            <div class="card">Cultural Dance</div>
+            <div class="card">Live Performances</div>
+        </div>
+        <button onclick="navigateTo('explore')">View</button>
+    </section>
+    
+    <section id="journal" class="section dark hidden">
+        <h2>Festival Highlights</h2>
+        <div class="cards">
+            <div class="card">Singers & Artists</div>
+            <div class="card">Cultural Programs</div>
+        </div>
+        <button onclick="navigateTo('journal')">View</button>
+    </section>
+</body>
+</html>
